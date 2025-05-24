@@ -73,12 +73,14 @@ export default function AnalysisPanel({ onClose }: { onClose: () => void }) {
             '데이터 불러오는 중…'
           ) : (
             <>
+              <h1>B.B.</h1>
               {/* 주제 표현 */}
               <p style={{ marginBottom: theme.spacing.m }}>
                 이 기사는 <strong>{data.topic}</strong>을(를) 주제로 한 기사입니다.
               </p>
 
               {/* 진보·보수 비율 */}
+              <h2>1. 성향 분석</h2>
               <BiasBar
                 progressiveRatio={data.biasScore}
                 conservativeRatio={1 - data.biasScore}
@@ -87,11 +89,20 @@ export default function AnalysisPanel({ onClose }: { onClose: () => void }) {
                 진보 <strong>{Math.round(data.biasScore * 100)}%</strong> &nbsp; | &nbsp;
                 보수 <strong>{Math.round((1 - data.biasScore) * 100)}%</strong>
               </p>
-
-              {/* 요약 텍스트 */}
-              <div style={{ whiteSpace: 'pre-wrap', marginTop: theme.spacing.m }}>
-                {data.summary}
-              </div>
+              {/* 의심요소 목록 */}
+              <div>
+                <h2>2. 신뢰도 분석</h2>
+                 <h4 style={{ marginBottom: theme.spacing.s }}>의심요소</h4>
+                 <div>
+                 <ol style={{ marginLeft: theme.spacing.m, color: theme.colors.textDark }}>
+                   {data.suspiciousItems.map((item, idx) => (
+                     <li key={idx} style={{ marginBottom: theme.spacing.s }}>
+                       {item}
+                     </li>
+                   ))}
+                 </ol>
+                 </div>
+               </div>
             </>
           )}
         </Content>

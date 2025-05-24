@@ -28,7 +28,7 @@ export default function BiasBar({ progressiveRatio, conservativeRatio }: Props) 
     <Container>
       <Segment
         width={progressiveRatio * 100}
-        color={theme.colors.primary}
+        color={theme.colors.progress}
       />
       <Segment
         width={conservativeRatio * 100}
