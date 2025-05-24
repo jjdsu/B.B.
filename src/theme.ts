@@ -1,8 +1,9 @@
 export const theme = {
   colors: {
     primary: '#800020', // Burgundy
-    secondary: '#FFFDD0', // Cream
-    conservative: '#CCCCCC',
+    secondary: ' #FFF5E1', // Cream
+    progress: ' #EB0000',
+    conservative: ' #1EA4FF',
     textDark: '#333',
     textLight: '#FFF'
   },

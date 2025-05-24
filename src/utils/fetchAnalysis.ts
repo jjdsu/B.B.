@@ -1,7 +1,7 @@
 export interface AnalysisResult {
-  summary: string;
   biasScore: number;
   topic: string;
+  suspiciousItems: string[];
 }
 
 export async function analyzeArticle(text: string): Promise<AnalysisResult> {
@@ -12,5 +12,5 @@ export async function analyzeArticle(text: string): Promise<AnalysisResult> {
   });
   if (!response.ok) throw new Error('분석 실패');
   // topic이 포함된 JSON을 그대로 파싱
-  return await response.json();
+  return await response.json()
 }
